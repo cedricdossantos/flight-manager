@@ -2,7 +2,7 @@
 
 ## Context
 
-Dear developer,
+Dear readers/developers,
 
 This project is a sample showing my skills on Asp.net core Web API. 
 I tried as much as I could to develop with a test-first philosophy (TDD) and with the objectif of making my code testable and tested.
