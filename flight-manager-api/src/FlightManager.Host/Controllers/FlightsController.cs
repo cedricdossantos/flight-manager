@@ -17,6 +17,10 @@ namespace FlightManager.Host.Controllers
     {
         private readonly ITracker _tracker;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tracker"></param>
         public FlightsController(ITracker tracker)
         {
             _tracker = tracker;

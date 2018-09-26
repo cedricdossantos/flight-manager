@@ -11,7 +11,7 @@ namespace FlightManager.Services.Models
         public Airport(string name, double latitude, double longitude)
         {
             Name = name;
-            Coordinate = new GeoCoordinate(latitude, longitude);
+            Coordinate = new GeoCoordinate(latitude, longitude,0,50,50,0,0);
         }
     }
 }

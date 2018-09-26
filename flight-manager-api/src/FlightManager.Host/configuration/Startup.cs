@@ -11,15 +11,21 @@ using FlightManager.InMemoryClient;
 
 namespace FlightManager.Host
 {
+    /// <inheritdoc cref="Startup" />
     public class Startup
     {
+        /// <inheritdoc />
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+        private IConfiguration Configuration { get; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<ITracker, FlightTracker>();
@@ -33,26 +39,20 @@ namespace FlightManager.Host
                 var filePath = Path.Combine(System.AppContext.BaseDirectory, "FlightManager.Host.xml");
                 c.IncludeXmlComments(filePath);
             });
-//            services.AddMvcCore()
-//                .AddApiExplorer();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="env"></param>
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-//            if (env.IsDevelopment())
-//            {
-//                app.UseDeveloperExceptionPage();
-//            }
-//            else
-//            {
-//                app.UseHsts();
-//            }
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Flight manager");
             });
-//            app.UseHttpsRedirection();
             app.UseMvc();
         }
     }
