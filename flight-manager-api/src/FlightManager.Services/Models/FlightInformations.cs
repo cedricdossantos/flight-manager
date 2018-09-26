@@ -2,17 +2,21 @@
 {
     public class FlightInformations
     {
-        public Airport Departure { get; }
+        public string DepartureAirportName { get; set; }
+        
+        public double DepartureAirportLatitude { get; set; }
 
-        public Airport Arrival { get; }
+        public double DepartureAirportLongitude { get; set; }
+        
+        public string ArrivalAirportName { get; set; }
+        
+        public double ArrivalAirportLatitude { get; set; }
 
-        public double Distance { get; }
+        public double ArrivalAirportLongitude { get; set; }
 
-        public FlightInformations(Airport departure, Airport arrival)
+        public FlightInformations()
         {
-            Departure = departure;
-            Arrival = arrival;
-            Distance = Departure.Coordinate.GetDistanceTo(Arrival.Coordinate);
+            
         }
     }
 }

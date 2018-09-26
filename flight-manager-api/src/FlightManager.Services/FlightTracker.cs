@@ -7,39 +7,31 @@ namespace FlightManager.Services
 {
     public class FlightTracker : ITracker
     {
-        private List<Flight> _flights = new List<Flight>();
+        private readonly IClient _client;
 
-        public FlightTracker()
+        public FlightTracker(IClient client)
         {
-            
-            _flights.Add(new Flight("F42", new Airport("b", 5, 5), new Airport("a", 1, 5)));
-            _flights.Add(new Flight("F-Light", new Airport("a", 1, 5), new Airport("b", 5, 5)));
+            _client = client;
         }
         
         public Result AddFlight(Flight flight)
         {
-            _flights.Add(flight);
-            return Result.Ok($"Flight {flight.Code} successfully created");
+            return _client.CreateFlight(flight);
         }
 
-        public Result UpdateFlight(string code, FlightInformations flightInformations)
+        public Result UpdateFlight(string code, FlightPlan infos)
         {
-            var toReplace = _flights.FirstOrDefault(f => f.Code == code);
-            var toAdd = new Flight(code, flightInformations.Departure,flightInformations.Arrival);
-
-            _flights.Remove(toReplace);
-            _flights.Add(toAdd);
-            return Result.Ok($"Flight { code} successfully updated ");
+            return _client.UpdateFlight(code, infos);
         }
 
         public Result<Flight> GetFlight(string code)
         {
-            return Result<Flight>.Ok(_flights.FirstOrDefault(f => f.Code == code));
+            return _client.SelectFlight(code);
         }
 
         public Result<List<Flight>> GetFlights()
         {
-            return Result<List<Flight>>.Ok(_flights);
+            return _client.SelectFlights();
         }
     }
 }

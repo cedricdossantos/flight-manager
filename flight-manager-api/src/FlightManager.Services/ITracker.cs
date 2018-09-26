@@ -9,7 +9,7 @@ namespace FlightManager.Services
 
         Result AddFlight(Flight flight);
 
-        Result UpdateFlight(string code, FlightInformations flightInformations);
+        Result UpdateFlight(string code, FlightPlan infos);
 
         Result<Flight> GetFlight(string code);
 

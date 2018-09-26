@@ -23,7 +23,6 @@ namespace FlightManager.Services.Tests
                     break;
                 case Failure failure:
                     throw new Exception("should not be failure");
-                    break;
             }
         }
         
@@ -39,7 +38,6 @@ namespace FlightManager.Services.Tests
             {
                 case Success success:
                     throw new Exception("should not be success");
-                    break;
                 case Failure failure:
                     Check.That(failure.Errors.Count).IsEqualTo(2);
                     break;
@@ -62,7 +60,6 @@ namespace FlightManager.Services.Tests
                     break;
                 case Failure<string> failure:
                     throw new Exception("should not be failure");
-                    break;
             }
         }
         
@@ -78,7 +75,6 @@ namespace FlightManager.Services.Tests
             {
                 case Success<string> success:
                     throw new Exception("should not be success");
-                    break;
                 case Failure<string> failure:
                     Check.That(failure.Errors.Count).IsEqualTo(2);
                     break;

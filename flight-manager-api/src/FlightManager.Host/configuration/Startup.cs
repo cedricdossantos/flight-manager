@@ -1,9 +1,13 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System.IO;
+using FlightManager.Services;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
+using FlightManager.InMemoryClient;
 
 namespace FlightManager.Host
 {
@@ -18,11 +22,16 @@ namespace FlightManager.Host
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<ITracker, FlightTracker>();
+            services.AddSingleton<IClient, InmemoryClient>();
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "Flight manager", Version = "v1" });
+                var filePath = Path.Combine(System.AppContext.BaseDirectory, "FlightManager.Host.xml");
+                c.IncludeXmlComments(filePath);
             });
 //            services.AddMvcCore()
 //                .AddApiExplorer();

@@ -4,8 +4,17 @@
         <TargetFramework>netcoreapp2.1</TargetFramework>
     </PropertyGroup>
 
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DocumentationFile>bin\Debug\netcoreapp2.1\FlightManager.Host.xml</DocumentationFile>
+    </PropertyGroup>
+
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.App" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="3.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\FlightManager.InMemoryClient\FlightManager.InMemoryClient.csproj" />
+      <ProjectReference Include="..\FlightManager.Services\FlightManager.Services.csproj" />
     </ItemGroup>
 </Project>

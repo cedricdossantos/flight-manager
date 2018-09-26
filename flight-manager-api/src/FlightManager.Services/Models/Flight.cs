@@ -6,18 +6,19 @@ namespace FlightManager.Services.Models
     {
         public string Code { get; }
 
-        public Airport Departure { get; }
+        public FlightPlan FlightPlan { get; }
 
-        public Airport Arrival { get; }
-
-        public double Distance { get; }
-
-        public Flight(string code, Airport departure, Airport arrival)
+        public Flight(string code, FlightPlan flightPlan)
         {
             Code = code;
-            Departure = departure;
-            Arrival = arrival;
-            Distance = Departure.Coordinate.GetDistanceTo(Arrival.Coordinate);
+            FlightPlan = flightPlan;
         }
+        
+        public Flight(string code, FlightInformations infos )
+        {
+            Code = code;
+            FlightPlan = new FlightPlan(infos);
+        }
+        
     }
 }

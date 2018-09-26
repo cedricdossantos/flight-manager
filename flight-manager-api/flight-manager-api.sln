@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManager.Services", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManager.Services.Tests", "tests\FlightManager.Services.Tests\FlightManager.Services.Tests.csproj", "{8313F0B0-EA7D-42A6-BB19-7C9F9A4701A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManager.InMemoryClient", "src\FlightManager.InMemoryClient\FlightManager.InMemoryClient.csproj", "{F21F47DD-24B4-42AA-8A98-621B9C3E4197}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{8313F0B0-EA7D-42A6-BB19-7C9F9A4701A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8313F0B0-EA7D-42A6-BB19-7C9F9A4701A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8313F0B0-EA7D-42A6-BB19-7C9F9A4701A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F21F47DD-24B4-42AA-8A98-621B9C3E4197}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F21F47DD-24B4-42AA-8A98-621B9C3E4197}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F21F47DD-24B4-42AA-8A98-621B9C3E4197}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F21F47DD-24B4-42AA-8A98-621B9C3E4197}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FC2A46E4-2B9B-42D3-A0A5-366B0A3D14D2} = {E72BEB92-8E59-495D-AC0C-A1CD49C158E2}

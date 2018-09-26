@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 
 namespace FlightManager.Host
 {
+    /// <inheritdoc />
     public class Program
     {
         public static void Main(string[] args)
