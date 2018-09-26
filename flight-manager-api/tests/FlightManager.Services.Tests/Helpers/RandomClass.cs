@@ -21,7 +21,7 @@ namespace FlightManager.Services.Tests
         } 
         internal Result<string> ReturnGenericSuccess()
         {
-            return Result<string>.Ok("Yeah!", "test");
+            return Result<string>.Ok("test");
         } 
         
         internal Result<string> ReturnGenericFailure()

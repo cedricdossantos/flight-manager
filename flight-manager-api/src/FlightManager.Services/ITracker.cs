@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using FlightManager.Services.Helpers;
 using FlightManager.Services.Models;
 
 namespace FlightManager.Services
@@ -6,12 +7,12 @@ namespace FlightManager.Services
     public interface ITracker
     {
 
-        bool AddFlight(Flight flight);
+        Result AddFlight(Flight flight);
 
-        void UpdateFlight(string code, FlightInformations informations);
+        Result UpdateFlight(string code, FlightInformations flightInformations);
 
-        Flight GetFlight(string code);
+        Result<Flight> GetFlight(string code);
 
-        List<Flight> GetFlights();
+        Result<List<Flight>> GetFlights();
     }
 }

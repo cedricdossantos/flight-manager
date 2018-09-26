@@ -57,7 +57,6 @@ namespace FlightManager.Services.Tests
             switch (result)
             {
                 case Success<string> success:
-                    Check.That(success.Message).Not.IsNullOrEmpty();
                     Check.That(success.Value).IsInstanceOf<string>();
                     Check.That(success.Value).IsEqualTo("test");
                     break;

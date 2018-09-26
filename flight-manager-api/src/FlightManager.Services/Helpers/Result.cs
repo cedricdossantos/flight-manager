@@ -56,9 +56,9 @@ namespace FlightManager.Services.Helpers
             return new Failure<T>(errors);
         }
         
-        public static Success<T> Ok(string message, T value)
+        public static Success<T> Ok(T value)
         {
-            return new Success<T>(message, value);
+            return new Success<T>(value);
         }
         
         public  bool IsFailure() => this is Failure<T>;
@@ -81,13 +81,11 @@ namespace FlightManager.Services.Helpers
 
     public class Success<T> : Result<T>
     {
-        public string Message { get; }
         
         public T Value { get; }
 
-        public Success(string message, T value)
+        public Success(T value)
         {
-            Message = message;
             Value = value;
         }
     }
