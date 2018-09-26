@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManager.Host", "src\FlightManager.Host\FlightManager.Host.csproj", "{82F7D90E-6569-40CF-A2C5-1714F1719487}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManager.IntegrationTests", "tests\FlightManager.IntegrationTests\FlightManager.IntegrationTests.csproj", "{FC2A46E4-2B9B-42D3-A0A5-366B0A3D14D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{82F7D90E-6569-40CF-A2C5-1714F1719487}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82F7D90E-6569-40CF-A2C5-1714F1719487}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82F7D90E-6569-40CF-A2C5-1714F1719487}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC2A46E4-2B9B-42D3-A0A5-366B0A3D14D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC2A46E4-2B9B-42D3-A0A5-366B0A3D14D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC2A46E4-2B9B-42D3-A0A5-366B0A3D14D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC2A46E4-2B9B-42D3-A0A5-366B0A3D14D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
