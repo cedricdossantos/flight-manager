@@ -19,6 +19,10 @@ namespace FlightManager.Services.Models
             Code = code;
             FlightPlan = new FlightPlan(infos);
         }
-        
+
+        public Flight()
+        {
+            
+        }
     }
 }

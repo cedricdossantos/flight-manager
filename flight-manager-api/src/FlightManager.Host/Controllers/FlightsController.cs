@@ -48,7 +48,7 @@ namespace FlightManager.Host.Controllers
         /// <param name="flightCode"></param>
         /// <returns></returns>
         [HttpGet("{flightCode}")]
-        public IActionResult GetById([FromRoute] string flightCode)
+        public IActionResult GetById(string flightCode)
         {
             var result = _tracker.GetFlight(flightCode);
 
@@ -70,7 +70,7 @@ namespace FlightManager.Host.Controllers
         /// <param name="infos"></param>
         /// <returns></returns>
         [HttpPut("{flightCode}")]
-        public IActionResult Put([FromRoute] string flightCode, [FromBody] FlightInformations infos)
+        public IActionResult Put(string flightCode, [FromBody] FlightInformations infos)
         {
             var result = _tracker.UpdateFlight(flightCode, new FlightPlan(infos));
             switch (result)
@@ -91,7 +91,7 @@ namespace FlightManager.Host.Controllers
         /// <param name="infos"></param>
         /// <returns></returns>
         [HttpPost]
-        public IActionResult Post([FromQuery]string flightCode, [FromBody]FlightInformations infos)
+        public IActionResult Post(string flightCode, [FromBody]FlightInformations infos)
         {
             var result = _tracker.AddFlight(new Flight(flightCode, infos));
             switch (result)

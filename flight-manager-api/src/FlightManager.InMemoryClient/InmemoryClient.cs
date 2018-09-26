@@ -13,7 +13,7 @@ namespace FlightManager.InMemoryClient
 
         public InmemoryClient()
         {
-            _flights.Add(new Flight("EZ=2345", new FlightPlan(new Airport("Paris", 5, 5), new Airport("London", 1, 5))));
+            _flights.Add(new Flight("EZ-2345", new FlightPlan(new Airport("Paris", 5, 5), new Airport("London", 1, 5))));
             _flights.Add(new Flight("VU-9230", new FlightPlan(new Airport("London", 1, 5), new Airport("Paris", 5, 5))));
             _flights.Add(new Flight("AF-2345", new FlightPlan(new Airport("Paris", 5, 5), new Airport("London", 1, 5))));
             _flights.Add(new Flight("TP-9230", new FlightPlan(new Airport("London", 1, 5), new Airport("Paris", 5, 5))));

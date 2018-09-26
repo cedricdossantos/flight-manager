@@ -21,5 +21,10 @@
             Arrival = new Airport(flight.ArrivalAirportName, flight.ArrivalAirportLatitude, flight.ArrivalAirportLongitude);
             Distance = Departure.Coordinate.GetDistanceTo(Arrival.Coordinate);
         }
+
+        public FlightPlan()
+        {
+            
+        }
     }
 }
