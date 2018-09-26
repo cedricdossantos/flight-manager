@@ -4,6 +4,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManager.Host", "src\F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManager.IntegrationTests", "tests\FlightManager.IntegrationTests\FlightManager.IntegrationTests.csproj", "{FC2A46E4-2B9B-42D3-A0A5-366B0A3D14D2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E72BEB92-8E59-495D-AC0C-A1CD49C158E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManager.Services", "src\FlightManager.Services\FlightManager.Services.csproj", "{7930F5E9-D09B-4A2B-B2CE-C6874E3713A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManager.Services.Tests", "tests\FlightManager.Services.Tests\FlightManager.Services.Tests.csproj", "{8313F0B0-EA7D-42A6-BB19-7C9F9A4701A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +24,17 @@ Global
 		{FC2A46E4-2B9B-42D3-A0A5-366B0A3D14D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC2A46E4-2B9B-42D3-A0A5-366B0A3D14D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC2A46E4-2B9B-42D3-A0A5-366B0A3D14D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7930F5E9-D09B-4A2B-B2CE-C6874E3713A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7930F5E9-D09B-4A2B-B2CE-C6874E3713A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7930F5E9-D09B-4A2B-B2CE-C6874E3713A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7930F5E9-D09B-4A2B-B2CE-C6874E3713A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8313F0B0-EA7D-42A6-BB19-7C9F9A4701A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8313F0B0-EA7D-42A6-BB19-7C9F9A4701A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8313F0B0-EA7D-42A6-BB19-7C9F9A4701A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8313F0B0-EA7D-42A6-BB19-7C9F9A4701A9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FC2A46E4-2B9B-42D3-A0A5-366B0A3D14D2} = {E72BEB92-8E59-495D-AC0C-A1CD49C158E2}
+		{8313F0B0-EA7D-42A6-BB19-7C9F9A4701A9} = {E72BEB92-8E59-495D-AC0C-A1CD49C158E2}
 	EndGlobalSection
 EndGlobal
