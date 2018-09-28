@@ -5,7 +5,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="GeoCoordinate.NetCore" Version="1.0.0.1" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.1.3" />
     </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\FlightManager.Libraries\FlightManager.Libraries.csproj" />
+      <ProjectReference Include="..\FlightManager.Repositories\FlightManager.Repositories.csproj" />
+    </ItemGroup>
+
 
 </Project>

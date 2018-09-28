@@ -14,7 +14,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\FlightManager.InMemoryClient\FlightManager.InMemoryClient.csproj" />
+      <ProjectReference Include="..\FlightManager.Api\FlightManager.Api.csproj" />
+      <ProjectReference Include="..\FlightManager.Repositories\FlightManager.Repositories.csproj" />
       <ProjectReference Include="..\FlightManager.Services\FlightManager.Services.csproj" />
     </ItemGroup>
 </Project>

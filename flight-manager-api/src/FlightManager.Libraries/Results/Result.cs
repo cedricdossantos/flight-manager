@@ -1,7 +1,6 @@
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace FlightManager.Services.Helpers
+namespace FlightManager.Libraries
 {
     public abstract class Result
     {
@@ -17,36 +16,21 @@ namespace FlightManager.Services.Helpers
             return new Success(message);
         }
         
+        public static NotFound NotFound(string error)
+        {
+            return new NotFound(error);
+        }
+        
         public  bool IsFailure() => this is Failure;
         
         
         public  bool IsSuccess() => this is Success;
         
+        public  bool IsNotFound() => this is NotFound;
         
-        
-    }
-    public class Failure : Result
-    {
-            
-        public IReadOnlyList<string> Errors { get; }
-
-        internal Failure(List<string> errors)
-        {
-            Errors = errors;
-        }
     }
 
-    public class Success : Result
-    {
-        public string Message { get; set; }
 
-        public Success(string message)
-        {
-            Message = message;
-        }
-    }
-    
-    
     public abstract class Result<T>
     {
         internal Result(){}
@@ -61,32 +45,19 @@ namespace FlightManager.Services.Helpers
             return new Success<T>(value);
         }
         
+        public static NotFound<T> NotFound(string error)
+        {
+            return new NotFound<T>(error);
+        }
+        
         public  bool IsFailure() => this is Failure<T>;
         
+        public  bool IsNotFound() => this is NotFound<T>;
         
         public  bool IsSuccess() => this is Success<T>;
         
     }
-    
-    public class Failure<T> : Result<T>
-    {
-            
-        public IReadOnlyList<string> Errors { get; }
 
-        internal Failure(List<string> errors)
-        {
-            Errors = errors;
-        }
-    }
 
-    public class Success<T> : Result<T>
-    {
-        
-        public T Value { get; }
 
-        public Success(T value)
-        {
-            Value = value;
-        }
-    }
 }

@@ -10,7 +10,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManager.Services", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManager.Services.Tests", "tests\FlightManager.Services.Tests\FlightManager.Services.Tests.csproj", "{8313F0B0-EA7D-42A6-BB19-7C9F9A4701A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManager.InMemoryClient", "src\FlightManager.InMemoryClient\FlightManager.InMemoryClient.csproj", "{F21F47DD-24B4-42AA-8A98-621B9C3E4197}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManager.Api", "src\FlightManager.Api\FlightManager.Api.csproj", "{572755FB-BD00-4375-84C8-3912C336860C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManager.Repositories", "src\FlightManager.Repositories\FlightManager.Repositories.csproj", "{EE184B37-984B-4924-B3A6-E62D4C0E5FC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManager.Libraries", "src\FlightManager.Libraries\FlightManager.Libraries.csproj", "{305398F9-B4BC-41D2-B98D-86D46F518109}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManager.Libraries.Tests", "tests\FlightManager.Libraries.Tests\FlightManager.Libraries.Tests.csproj", "{8C972DFF-3C4C-439D-8DBA-90A1DC2F7908}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManager.Api.Tests", "tests\FlightManager.Api.Tests\FlightManager.Api.Tests.csproj", "{93296462-E034-4B8D-877C-3795C1C6329A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,13 +42,31 @@ Global
 		{8313F0B0-EA7D-42A6-BB19-7C9F9A4701A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8313F0B0-EA7D-42A6-BB19-7C9F9A4701A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8313F0B0-EA7D-42A6-BB19-7C9F9A4701A9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F21F47DD-24B4-42AA-8A98-621B9C3E4197}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F21F47DD-24B4-42AA-8A98-621B9C3E4197}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F21F47DD-24B4-42AA-8A98-621B9C3E4197}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F21F47DD-24B4-42AA-8A98-621B9C3E4197}.Release|Any CPU.Build.0 = Release|Any CPU
+		{572755FB-BD00-4375-84C8-3912C336860C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{572755FB-BD00-4375-84C8-3912C336860C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{572755FB-BD00-4375-84C8-3912C336860C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{572755FB-BD00-4375-84C8-3912C336860C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE184B37-984B-4924-B3A6-E62D4C0E5FC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE184B37-984B-4924-B3A6-E62D4C0E5FC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE184B37-984B-4924-B3A6-E62D4C0E5FC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE184B37-984B-4924-B3A6-E62D4C0E5FC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{305398F9-B4BC-41D2-B98D-86D46F518109}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{305398F9-B4BC-41D2-B98D-86D46F518109}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{305398F9-B4BC-41D2-B98D-86D46F518109}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{305398F9-B4BC-41D2-B98D-86D46F518109}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C972DFF-3C4C-439D-8DBA-90A1DC2F7908}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C972DFF-3C4C-439D-8DBA-90A1DC2F7908}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C972DFF-3C4C-439D-8DBA-90A1DC2F7908}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C972DFF-3C4C-439D-8DBA-90A1DC2F7908}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93296462-E034-4B8D-877C-3795C1C6329A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93296462-E034-4B8D-877C-3795C1C6329A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93296462-E034-4B8D-877C-3795C1C6329A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93296462-E034-4B8D-877C-3795C1C6329A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FC2A46E4-2B9B-42D3-A0A5-366B0A3D14D2} = {E72BEB92-8E59-495D-AC0C-A1CD49C158E2}
 		{8313F0B0-EA7D-42A6-BB19-7C9F9A4701A9} = {E72BEB92-8E59-495D-AC0C-A1CD49C158E2}
+		{8C972DFF-3C4C-439D-8DBA-90A1DC2F7908} = {E72BEB92-8E59-495D-AC0C-A1CD49C158E2}
+		{93296462-E034-4B8D-877C-3795C1C6329A} = {E72BEB92-8E59-495D-AC0C-A1CD49C158E2}
 	EndGlobalSection
 EndGlobal
