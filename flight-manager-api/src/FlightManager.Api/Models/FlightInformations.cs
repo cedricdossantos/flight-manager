@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using FlightManager.Libraries.Distance;
 using FlightManager.Services.Models;
 
 namespace FlightManager.Api.Models
@@ -39,7 +40,7 @@ namespace FlightManager.Api.Models
         [Required]
         public double ArrivalAirportLongitude { get; set; }
 
-        public FlightDTO ToDomainModel()
+        public FlightDTO ToDomainModel(IDistanceCalculator calculator)
         {
             return new FlightDTO(
                 Code,
@@ -56,7 +57,8 @@ namespace FlightManager.Api.Models
                 ConsumptionPerKm,
                 TakeOffEffort,
                 DepartureTime,
-                ArrivalTime);
+                ArrivalTime,
+                calculator);
         }
 
         public FlightInformations()

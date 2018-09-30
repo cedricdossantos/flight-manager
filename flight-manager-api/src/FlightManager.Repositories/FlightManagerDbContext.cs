@@ -21,8 +21,8 @@ namespace FlightManager.Repositories
             
             var flight = new Flight()
             {    
-                Distance = 12524.661452383418,
-                FuelNeeded = 250513.22904766834,
+                Distance = 5837,
+                FuelNeeded = 25051,
                 DepartureName = "Paris",
                 DepartureLatitude = 48.8534,
                 DepartureLongitude = 2.3488,

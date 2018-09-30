@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using FlightManager.Api.Controllers;
+using FlightManager.Libraries.Distance;
 using FlightManager.Repositories;
 using FlightManager.Repositories.Models;
 using FlightManager.Services;
@@ -35,6 +36,7 @@ namespace FlightManager.Host
         {
             services.AddTransient<IFlightService, FlightService>();
             services.AddTransient<IFlightRepository, FlightRepository>();
+            services.AddTransient<IDistanceCalculator, DistanceCalculator>();
             services.AddDbContext<FlightManagerDbContext>(opt =>
                 opt.UseInMemoryDatabase("inMemoryDB"));
 

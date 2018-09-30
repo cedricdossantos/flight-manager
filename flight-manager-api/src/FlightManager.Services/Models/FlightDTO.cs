@@ -1,4 +1,5 @@
 ﻿using System;
+using FlightManager.Libraries.Distance;
 using FlightManager.Repositories.Models;
 
 namespace FlightManager.Services.Models
@@ -27,12 +28,16 @@ namespace FlightManager.Services.Models
 
 
         public FlightDTO(string code, AirportDTO departure, AirportDTO arrival,
-            double consumptionPerKm, double takeOffEffort, DateTime departureTime, DateTime arrivalTime)
+            double consumptionPerKm, double takeOffEffort, DateTime departureTime, DateTime arrivalTime,IDistanceCalculator calculator)
         {
             Code = code;
             Departure = departure;
             Arrival = arrival;
-            Distance = Departure.Coordinate.GetDistanceTo(Arrival.Coordinate);
+            Distance = calculator.GetDistanceBetween(
+                departure.Coordinate.Latitude,
+                departure.Coordinate.Longitude,
+                arrival.Coordinate.Latitude,
+                arrival.Coordinate.Longitude);
             ConsumptionPerKm = consumptionPerKm;
             TakeOffEffort = takeOffEffort;
             DepartureTime = departureTime;
@@ -41,6 +46,7 @@ namespace FlightManager.Services.Models
             FlightTime = ArrivalTime - DepartureTime;
         }
 
+        
         public FlightDTO()
         {
         }

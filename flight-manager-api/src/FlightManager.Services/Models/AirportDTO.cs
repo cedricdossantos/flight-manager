@@ -17,7 +17,7 @@ namespace FlightManager.Services.Models
         public AirportDTO(Airport airport)
         {
             Name = airport.Name;
-            Coordinate = new Coordinate(airport.Longitude,airport.Latitude);
+            Coordinate = new Coordinate(airport.Latitude, airport.Longitude);
         }
     }
 }

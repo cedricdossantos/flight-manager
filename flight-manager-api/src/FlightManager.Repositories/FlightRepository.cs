@@ -17,10 +17,11 @@ namespace FlightManager.Repositories
 
         public Result CreateFlight(Flight flight)
         {
-            if (_context.Flight.Any(x => x.Code == flight.Code))
-                return Result.Fail(new List<string>() {$"The flight {flight.Code} already exists"});
             try
             {
+                var tmp = _context.Flight.FirstOrDefault(f => f.Code == flight.Code);
+                if (tmp != null)
+                    return Result.Conflict($"Flight {flight.Code} already exists");
                 _context.Flight.Add(flight);
                 _context.SaveChanges();
                 return Result.Ok("Flight successfully saved");
@@ -33,12 +34,13 @@ namespace FlightManager.Repositories
 
         public Result UpdateFlight(Flight flight)
         {
-            if (!_context.Flight.Any(f => f.Code == flight.Code))
-                return Result.NotFound($"Flight {flight.Code} not found");
-            
-            var toUpdate = _context.Flight.First(f => f.Code == flight.Code);
             try
             {
+                var tmp = _context.Flight.FirstOrDefault(f => f.Code == flight.Code);
+                if (tmp == null)
+                    return Result.NotFound($"Flight { flight.Code} not found");
+            
+                var toUpdate = _context.Flight.First(f => f.Code == flight.Code);
                 toUpdate.Distance = flight.Distance;
                 toUpdate.DepartureLatitude = flight.DepartureLatitude;
                 toUpdate.DepartureLongitude = flight.DepartureLongitude;
@@ -59,24 +61,37 @@ namespace FlightManager.Repositories
             }
             catch (Exception e)
             {
-                return Result.Fail(new List<string>() {$"An error occured,{e.Message}"});
+                return Result.Fail(new List<string>() {$"An error occured, {e.Message}"});
             }
-
         }
 
         public Result<Flight> SelectFlight(string code)
         {
-            var flight = _context.Flight.FirstOrDefault(f => f.Code == code);
-            if (flight == null)
-                return Result<Flight>.NotFound($"Flight {code} not found");
-            return  Result<Flight>.Ok(flight);
+            try
+            {
+                var flight = _context.Flight.FirstOrDefault(f => f.Code == code);
+                if (flight == null)
+                    return Result<Flight>.NotFound($"Flight {code} not found");
+                return  Result<Flight>.Ok(flight);
+            }
+            catch (Exception e)
+            {
+                return Result<Flight>.Fail(new List<string>(){$"An error occured, {e.Message}"});
+            }
         }
 
         public Result<List<Flight>> SelectFlights()
         {
-            return Result<List<Flight>>.Ok(_context.Flight.Any()
-                ? _context.Flight.ToList()
-                : new List<Flight>());
+            try
+            {
+                return Result<List<Flight>>.Ok(_context.Flight.Any()
+                    ? _context.Flight.ToList()
+                    : new List<Flight>());
+            }
+            catch (Exception e)
+            {
+                return Result<List<Flight>>.Fail(new List<string>() {$"An error occured,{e.Message}"});
+            }
         }
     }
 }

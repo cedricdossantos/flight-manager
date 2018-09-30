@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManager.Libraries.Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManager.Api.Tests", "tests\FlightManager.Api.Tests\FlightManager.Api.Tests.csproj", "{93296462-E034-4B8D-877C-3795C1C6329A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManager.Repositories.Tests", "tests\FlightManager.Repositories.Tests\FlightManager.Repositories.Tests.csproj", "{44E5BE2B-082A-4FC6-AB36-27070FF6D6FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,11 +64,16 @@ Global
 		{93296462-E034-4B8D-877C-3795C1C6329A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93296462-E034-4B8D-877C-3795C1C6329A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93296462-E034-4B8D-877C-3795C1C6329A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44E5BE2B-082A-4FC6-AB36-27070FF6D6FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44E5BE2B-082A-4FC6-AB36-27070FF6D6FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44E5BE2B-082A-4FC6-AB36-27070FF6D6FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44E5BE2B-082A-4FC6-AB36-27070FF6D6FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FC2A46E4-2B9B-42D3-A0A5-366B0A3D14D2} = {E72BEB92-8E59-495D-AC0C-A1CD49C158E2}
 		{8313F0B0-EA7D-42A6-BB19-7C9F9A4701A9} = {E72BEB92-8E59-495D-AC0C-A1CD49C158E2}
 		{8C972DFF-3C4C-439D-8DBA-90A1DC2F7908} = {E72BEB92-8E59-495D-AC0C-A1CD49C158E2}
 		{93296462-E034-4B8D-877C-3795C1C6329A} = {E72BEB92-8E59-495D-AC0C-A1CD49C158E2}
+		{44E5BE2B-082A-4FC6-AB36-27070FF6D6FE} = {E72BEB92-8E59-495D-AC0C-A1CD49C158E2}
 	EndGlobalSection
 EndGlobal

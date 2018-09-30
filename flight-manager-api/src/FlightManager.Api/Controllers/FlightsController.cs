@@ -2,6 +2,7 @@
 using System.Net;
 using FlightManager.Api.Models;
 using FlightManager.Libraries;
+using FlightManager.Libraries.Distance;
 using FlightManager.Services;
 using FlightManager.Services.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -16,14 +17,16 @@ namespace FlightManager.Api.Controllers
     public class FlightsController : Controller
     {
         private readonly IFlightService _flightService;
+        private readonly IDistanceCalculator _distanceCalculator;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="flightService"></param>
-        public FlightsController(IFlightService flightService)
+        public FlightsController(IFlightService flightService, IDistanceCalculator distanceCalculator)
         {
             _flightService = flightService;
+            _distanceCalculator = distanceCalculator;
         }
         
         /// <summary>
@@ -65,7 +68,7 @@ namespace FlightManager.Api.Controllers
                 case NotFound<FlightDTO> notFound:
                     return NotFound(notFound.Error);
                 case Failure<FlightDTO> failure:
-                    return NotFound(failure.Errors);
+                    return StatusCode((int) HttpStatusCode.InternalServerError, string.Join(",",failure.Errors));
                 default:
                     return StatusCode((int) HttpStatusCode.InternalServerError, "Unexpected error");
             }
@@ -83,7 +86,7 @@ namespace FlightManager.Api.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
             
-            var result = _flightService.UpdateFlight(infos.ToDomainModel(flightCode));
+            var result = _flightService.UpdateFlight(infos.ToDomainModel(flightCode, _distanceCalculator));
             switch (result)
             {
                 case Success success:
@@ -102,20 +105,22 @@ namespace FlightManager.Api.Controllers
         /// </summary>
         /// <param name="flightCode"></param>
         /// <param name="infos"></param>
-        /// <returns></returns>
+        /// <returns>Ok if the flight is created, Internal Server Error</returns>
         [HttpPost]
         public IActionResult Post([FromBody]FlightInformations infos)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
             
-            var result = _flightService.AddFlight(infos.ToDomainModel());
+            var result = _flightService.AddFlight(infos.ToDomainModel(_distanceCalculator));
             switch (result)
             {
                 case Success success:
                     return Ok(success.Message);
+                case Conflict conflict:
+                    return Conflict(conflict.Error);
                 case Failure failure:
-                    return BadRequest(failure.Errors);
+                    return StatusCode((int) HttpStatusCode.InternalServerError, string.Join(",",failure.Errors));
                 default:
                     return StatusCode((int) HttpStatusCode.InternalServerError, "Unexpected error");
             }

@@ -14,6 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\tests\FlightManager.Libraries.Tests\FlightManager.Libraries.Tests.csproj" />
       <ProjectReference Include="..\FlightManager.Api\FlightManager.Api.csproj" />
       <ProjectReference Include="..\FlightManager.Repositories\FlightManager.Repositories.csproj" />
       <ProjectReference Include="..\FlightManager.Services\FlightManager.Services.csproj" />

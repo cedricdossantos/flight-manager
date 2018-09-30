@@ -23,6 +23,8 @@ namespace FlightManager.Services
             {
                 case Success success:
                     return Result.Ok(success.Message);
+                case Conflict conflict:
+                    return Result.Conflict(conflict.Error);
                 case Failure failure:
                     return Result.Fail(failure.Errors);
                 default:
@@ -43,7 +45,7 @@ namespace FlightManager.Services
                     return Result.NotFound(notFound.Error);
                 default:
                     return Result.Fail(new List<string>() {"An error occured"});
-            }
+        }
         }
 
         public Result<FlightDTO> GetFlight(string code)
@@ -78,4 +80,5 @@ namespace FlightManager.Services
             }
         }
     }
+    
 }

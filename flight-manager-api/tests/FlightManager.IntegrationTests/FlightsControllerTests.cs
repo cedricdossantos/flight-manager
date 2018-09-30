@@ -107,6 +107,27 @@ namespace FlightManager.IntegrationTests
         }
         
         [Fact]
+        public async Task PostFlight_Should_Return_Conflict()
+        {
+            // Arrange
+            using (var server = new TestServer(new WebHostBuilder().UseStartup<Startup>()))
+            {
+                using (var client = server.CreateClient())
+                {
+                    var textFlight =
+                        "{ \"code\": \"Air-tonight\", \"departureAirportName\": \"string\", \"departureAirportLatitude\": 0, \"departureAirportLongitude\": 0, \"consumptionPerKm\": 0, \"takeOffEffort\": 0, \"departureTime\": \"2018-09-28T00:28:44.339Z\", \"arrivalTime\": \"2018-09-28T00:28:44.339Z\", \"arrivalAirportName\": \"string\", \"arrivalAirportLatitude\": 0, \"arrivalAirportLongitude\": 0}";
+                    var content = new StringContent(textFlight, Encoding.UTF8, "application/json");
+                    
+                    // Act
+                    var response = await client.PostAsync("api/v1/flights", content);
+ 
+                    // Assert
+                    Check.That(response.StatusCode == HttpStatusCode.Conflict);
+                }
+            }
+        }
+        
+        [Fact]
         public async Task UpdateFlight_Should_Return_Ok()
         {
             //Arrange

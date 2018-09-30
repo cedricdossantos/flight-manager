@@ -21,13 +21,18 @@ namespace FlightManager.Libraries
             return new NotFound(error);
         }
         
-        public  bool IsFailure() => this is Failure;
+        public static Conflict Conflict(string error)
+        {
+            return new Conflict(error);
+        }
         
+        public  bool IsFailure() => this is Failure;
         
         public  bool IsSuccess() => this is Success;
         
         public  bool IsNotFound() => this is NotFound;
         
+        public  bool IsConflict() => this is Conflict;
     }
 
 
@@ -50,12 +55,18 @@ namespace FlightManager.Libraries
             return new NotFound<T>(error);
         }
         
+        public static Conflict<T> Conflict(string error)
+        {
+            return new Conflict<T>(error);
+        }
+        
         public  bool IsFailure() => this is Failure<T>;
         
         public  bool IsNotFound() => this is NotFound<T>;
         
         public  bool IsSuccess() => this is Success<T>;
         
+        public  bool IsConflict() => this is Conflict<T>;
     }
 
 

@@ -23,6 +23,11 @@ namespace FlightManager.Libraries.Tests
                 });
             }
             
+            internal Result ReturnConflict()
+            {
+                return Result.Conflict("oops, an error occured");
+            }
+            
             internal Result ReturnNotFound()
             {
                 return Result.NotFound("oops, an error occured");
@@ -45,6 +50,11 @@ namespace FlightManager.Libraries.Tests
             internal Result<string> ReturnGenericNotFound()
             {
                 return Result<string>.NotFound("oops, an error occured");
+            } 
+            
+            internal Result<string> ReturnGenericConflict()
+            {
+                return Result<string>.Conflict("oops, an error occured");
             } 
         }
         
@@ -118,6 +128,33 @@ namespace FlightManager.Libraries.Tests
         }
         
         [Fact]
+        public void Conflict_Should_Return_Conflict()
+        {
+            //Arrange
+            var sut = new MyClass();
+
+            // Act
+            var result = sut.ReturnConflict();
+            
+            // Assert
+            Check.That(result.IsSuccess()).IsFalse();
+            Check.That(result.IsFailure()).IsFalse();
+            Check.That(result.IsNotFound()).IsFalse();
+            Check.That(result.IsConflict()).IsTrue();
+            switch (result)
+            {
+                case Success success:
+                    throw new Exception("should not be success");
+                case Failure failure:
+                    throw new Exception("should not be success");
+                case NotFound notFound:
+                    throw new Exception("should not be not found");
+                case Conflict _:
+                    break;
+            }
+        }
+        
+        [Fact]
         public void OkGeneric_Should_Return_Success_With_Value()
         {
             //Arrange
@@ -175,6 +212,7 @@ namespace FlightManager.Libraries.Tests
             Check.That(result.IsSuccess()).IsFalse();
             Check.That(result.IsFailure()).IsFalse();
             Check.That(result.IsNotFound()).IsTrue();
+            Check.That(result.IsConflict()).IsFalse();
             switch (result)
             {
                 case Success<string> success:
@@ -182,6 +220,33 @@ namespace FlightManager.Libraries.Tests
                 case Failure<string> failure:
                     throw new Exception("should not be success");
                 case NotFound<string> _:
+                    break;
+            }
+        }
+        
+        [Fact]
+        public void ConflictGeneric_Should_Return_Conflict()
+        {
+            //Arrange
+            var sut = new MyClass();
+
+            // Act
+            var result = sut.ReturnGenericConflict();
+            
+            // Assert
+            Check.That(result.IsSuccess()).IsFalse();
+            Check.That(result.IsFailure()).IsFalse();
+            Check.That(result.IsNotFound()).IsFalse();
+            Check.That(result.IsConflict()).IsTrue();
+            switch (result)
+            {
+                case Success<string> success:
+                    throw new Exception("should not be success");
+                case Failure<string> failure:
+                    throw new Exception("should not be success");
+                case NotFound<string> notFound:
+                    throw new Exception("should not be not found");
+                case Conflict<string> _:
                     break;
             }
         }
