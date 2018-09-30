@@ -13,6 +13,33 @@ using Xunit;
 
 namespace FlightManager.Services.Tests
 {
+    public class ReportingServiceTests
+    {
+        [Fact]
+        public void GetReports_Should_Return_Success_With_Reports()
+        {
+            // Arrange
+            var repositoryMock = Substitute.For<IFlightRepository>();
+            repositoryMock.SelectFlights().Returns(Result<List<Flight>>.Ok(new List<Flight>()));
+            var sut = new ReportingService(repositoryMock);
+            // Act
+            var result = sut.GetReports();
+
+            // Assert
+            switch (result)
+            {
+                case Success<List<ReportDTO>> success:
+                    Check.That(success.Value).IsInstanceOf<List<ReportDTO>>();
+                    repositoryMock.Received(1).SelectFlights();
+                    break;
+                case Failure<List<ReportDTO>> failure:
+                    throw new Exception("should not be failure");
+                case NotFound<List<ReportDTO>> notFound:
+                    throw new Exception("should not be not found");
+            }
+        }
+    }
+
     public class FlightServiceTests
     {
         [Fact]

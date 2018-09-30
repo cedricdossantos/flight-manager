@@ -105,7 +105,7 @@ namespace FlightManager.Api.Controllers
         /// </summary>
         /// <param name="flightCode"></param>
         /// <param name="infos"></param>
-        /// <returns>Ok if the flight is created, Internal Server Error</returns>
+        /// <returns>Ok if the flight is created</returns>
         [HttpPost]
         public IActionResult Post([FromBody]FlightInformations infos)
         {

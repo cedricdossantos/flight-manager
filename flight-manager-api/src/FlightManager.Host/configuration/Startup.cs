@@ -35,6 +35,7 @@ namespace FlightManager.Host
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IFlightService, FlightService>();
+            services.AddTransient<IReportingService, ReportingService>();
             services.AddTransient<IFlightRepository, FlightRepository>();
             services.AddTransient<IDistanceCalculator, DistanceCalculator>();
             services.AddDbContext<FlightManagerDbContext>(opt =>

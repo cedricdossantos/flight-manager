@@ -1,11 +1,10 @@
-﻿using System;
+using System;
+using FlightManager.Services.Models;
 
-namespace FlightManager.Repositories.Models
+namespace FlightManager.Api.Models
 {
-    public class Flight
+    public class Report
     {
-        public int Id { get; set; }
-        
         public string Code { get; set;  }
         
         public string DepartureName { get; set; }
@@ -33,6 +32,23 @@ namespace FlightManager.Repositories.Models
         public TimeSpan FlightTime { get; set; }
         
         public double FuelNeeded { get; set; }
-        
+
+        public Report(ReportDTO dto)
+        {
+            Code = dto.Code;
+            DepartureName = dto.DepartureName;
+            DepartureLongitude = dto.DepartureLongitude;
+            DepartureLatitude = dto.DepartureLatitude;
+            DepartureTime = dto.DepartureTime;
+            ArrivalName = dto.ArrivalName;
+            ArrivalLongitude = dto.ArrivalLongitude;
+            ArrivalLatitude = dto.ArrivalLatitude;
+            ArrivalTime = dto.ArrivalTime;
+            Distance = dto.Distance;
+            FlightTime = dto.FlightTime;
+            ConsumptionPerKm = dto.ConsumptionPerKm;
+            TakeOffEffort = dto.TakeOffEffort;
+            FuelNeeded = dto.FuelNeeded;
+        }
     }
 }
